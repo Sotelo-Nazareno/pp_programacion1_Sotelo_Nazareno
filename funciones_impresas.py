@@ -61,6 +61,7 @@ def imprimir_datos(matriz:list[list], indice_col:int)->None:
             mensaje = f"{mensaje}, "
     print(mensaje)
 
+
 def imprimir_matriz_cxf(matriz:list[list])->None:
     """
     Recorre la matriz columna x fila
@@ -116,4 +117,50 @@ def imprimir_promedio_android(matriz:list[list])->None:
 
     print(mensaje)
 
-    
+
+def imprimir_datos_prolijo(matriz:list[list], indice_col:int)->None:
+    """
+    Imprime los datos obtenidos de una matriz de forma prolija
+
+    Args:
+        matriz (list[list]): La matriz de datos
+        indice_col (int): El indice de columna de la matriz de datos
+
+    returns:
+    None: Imprime por pantalla los datos obtenidos
+    """
+    mensaje = " "
+    cantidad_filas = len(matriz)
+
+    for indice_fila in range(cantidad_filas):
+        valor_actual = matriz[indice_fila][indice_col]
+        if indice_fila < 4:
+            dato_truncado = fns.truncar_caracter(valor_actual)
+        else:
+            dato_truncado = valor_actual
+
+        mensaje = f"{mensaje}{dato_truncado:15}"
+
+        if indice_fila < cantidad_filas -1:
+            mensaje = f"{mensaje} | "
+    print(mensaje)
+
+
+def imprimir_matriz_cxf_prolijo(matriz:list[list])->None:
+    """
+    Recorre la matriz columna x fila de forma prolija
+
+    :params: matriz(list[list]) = La matriz que ingrese el usuario
+
+    :returns:
+    None: Imprime por pantalla la matriz
+    """
+
+    cantidad_columnas = len(matriz[0])
+
+    mensaje = (f"     Nombre      |      Alias      |      Raza       |     Genero      |      Poder      |    Inteligencia  |     Velocidad \n")
+    mensaje = f"{mensaje}{"________________________________________________________________________________________________________________________________"}"
+    print(mensaje)
+
+    for indice_columna in range(cantidad_columnas):
+        imprimir_datos_prolijo(matriz, indice_columna)

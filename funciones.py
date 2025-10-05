@@ -1,5 +1,4 @@
 import validaciones as vl
-import funciones_filtradoras as fnf
 
 
 def crear_matriz(lista_a:list, lista_b:list, lista_c:list, lista_d:list, lista_e:list, lista_f:list, lista_g:list)->list[list]:
@@ -91,10 +90,14 @@ def guardar_dato(matriz:list[list])->list:
         campo = campo_por_indice(indice_dato)
         nuevo_dato = input(f"Carge un/a {campo} en la matriz de datos: ")
 
-        if nuevo_dato.isdigit():
-            nuevo_dato = vl.validar_rango(nuevo_dato, 0,100)
+        if indice_dato < 4:
+            nuevo_dato = vl.validar_datos(nuevo_dato, indice_dato)
         else:
-            nuevo_dato = vl.validar_datos(nuevo_dato)
+            numero_validado = vl.validar_numero(nuevo_dato, indice_dato)
+            nuevo_dato = vl.validar_rango(numero_validado, 0,100)
+
+
+
 
         lista_personaje.append(nuevo_dato)
 

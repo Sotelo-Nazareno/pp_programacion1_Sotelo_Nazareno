@@ -2,8 +2,8 @@ import funciones as fn
 import funciones_impresas as fni
 import funciones_filtradoras as fnf
 import funciones_ordenadoras as fno
-import os
 import validaciones as vl
+import os
 
 
 
@@ -34,7 +34,7 @@ def menu_opciones(lista_nombres:list, lista_alias:list, lista_razas:list, lista_
     opciones =\
         """
             [1] Crear Matriz
-            [2] Agregar personaje // fijarme lo de reeplace
+            [2] Agregar personaje 
             [3] Cantidad de existencias
             [4] Existencias personajes Human
             [5] Existencias personajes que no sean Human
@@ -61,7 +61,7 @@ def menu_opciones(lista_nombres:list, lista_alias:list, lista_razas:list, lista_
 
         print(opciones)
         
-        seleccion = vl.validar_rango_menu(1, 22)
+        seleccion = vl.validar_rango_menu(vl.validar_numero_menu(),1, 22)
 
         match seleccion:
             case 1:
@@ -81,11 +81,13 @@ def menu_opciones(lista_nombres:list, lista_alias:list, lista_razas:list, lista_
             case 4:
                 if not(vl.verificar_matriz_vacia(matriz_datos)):
                     fni.mostrar_razas_filtradas(matriz_datos, "razas", "Human", "igual")
+                    fni.imprimir_matriz_cxf(fnf.filtrar_matriz(matriz_datos, "razas", "Human", "igual"))
                 else:
                     print(mensaje_error)
             case 5:
                 if not(vl.verificar_matriz_vacia(matriz_datos)):
                     fni.mostrar_razas_filtradas(matriz_datos, "razas", "Human", "distinto")
+                    fni.imprimir_matriz_cxf(fnf.filtrar_matriz(matriz_datos, "razas", "Human", "distinto"))
                 else:
                     print(mensaje_error)
             case 6:
@@ -172,7 +174,7 @@ def menu_opciones(lista_nombres:list, lista_alias:list, lista_razas:list, lista_
                     print(mensaje_error)
             case 21:
                 if not(vl.verificar_matriz_vacia(matriz_datos)):
-                    fni.imprimir_matriz_cxf(fno.ordenar_matriz(matriz_datos, "razas", "ASC"))
+                    fni.imprimir_matriz_cxf_prolijo(fno.ordenar_matriz(matriz_datos, "razas", "ASC"))
                 else:
                     print(mensaje_error)
             case 22:

@@ -2,12 +2,17 @@ import funciones_impresas as fni
 import funciones as fn
 
 
-def obtener_datos_filtrados(matriz:list[list], matriz_filtrada:list[list], indice_col:int):
+def obtener_datos_filtrados(matriz:list[list], matriz_filtrada:list[list], indice_col:int)->list[list]:
     """
     Obtiene los datos filtrados de una matriz
 
-    :params:  matriz(list[list]) = La matriz que ingrese el usuario
+    Args:
+        matriz (list[list]): La matriz que ingrese el usuario
+        matriz_filtrada (list[list]): La matriz auxiliar que retorna
+        indice_col (int): El indice de columna
 
+    Returns:
+        list[list]: Devuelve la matriz filtrada
     """
     cantidad_filas = len(matriz)
 
@@ -21,14 +26,14 @@ def filtrar_matriz(matriz:list[list], categoria:str, tipo:str, bandera:str)->lis
     """
     Filtra una matriz en base a una categoria dada por el usuario
 
-    :params: matriz(list[list]) = La matrizx que ingrese el usuario
-    :params: categoria(str) = El campo de un indice dentro de la matriz dada
-    :params: tipo(str) = El tipo de dato el cual se filtrara
-    :params: bandera(str) = La manera es la que se filtrara la matriz [igual - distinto]
+    Args:
+        matriz (list[list]): La matrizx que ingrese el usuario
+        categoria (str): El campo de un indice dentro de la matriz dada
+        tipo (str): El tipo de dato el cual se filtrara
+        bandera (str): La manera es la que se filtrara la matriz [igual - distinto]
 
-
-    :returns:
-    Devuelve una matriz filtrada
+    Returns:
+        list[list]: Devuelve una matriz filtrada
     """
 
     matriz_filtrada = [
@@ -214,6 +219,15 @@ def filtrar_mayorigual_a_kryptonian(matriz:list[list])->list[list]:
 
 
 def filtrar_debajo_stats_saiyans(matriz:list[list])->list[list]:
+    """
+    Filtra la matriz de datos
+
+    Args:
+        matriz (list[list]): La matriz de datos
+
+    Returns:
+        list[list]: Devuelve una matriz con solo los personajes que estan debajo de la raza Saiyan
+    """
 
     matriz_filtrada = [[],[],[],[],[],[],[]]
 
