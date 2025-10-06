@@ -31,35 +31,10 @@ def menu_opciones(lista_nombres:list, lista_alias:list, lista_razas:list, lista_
     mensaje_matriz_cargada = f"Felicidades, tu matriz de datos se cargo con exito!"
     print("Bienvenido!")
 
-    opciones =\
-        """
-            [1] Crear Matriz
-            [2] Agregar personaje 
-            [3] Cantidad de existencias
-            [4] Existencias personajes Human
-            [5] Existencias personajes que no sean Human
-            [6] Mostrar en Detalle
-            [7] Mostrar Saiyans
-            [8] Mostrar más poderoso
-            [9] Mostrar más inteligente
-            [10] Filtrar Menor velocidad
-            [11] Filtrar Personajes Débiles A Raza Saiyan
-            [12] Filtrar No-Binario Mas Veloces
-            [13] Calcular el promedio de inteligencia y poder de los personajes que sean de raza Android.
-            [14] Mostar info personajes que NO sean Kryptonian y superen o igualen el promedio de poder de personajes de raza Kryptonian.
-            [15] Mostrar info de los personajes no Saiyan cuyos stats estén por debajo del índice de ataque Saiyan, obtenido de la ecuación (promedio poder + promedio inteligencia + promedio velocidad) / 3.
-            [16] Ordenar por Más Inteligente orden DES
-            [17] Ordenar por Menos Inteligente orden ASC [not Human]
-            [18] Ordenar por Más Poder orden DES [not Human]
-            [19] Ordenar por Más Velocidad ASC
-            [20] Ordenar personalizado
-            [21] Trasponer la matriz y mostrar su información prolija por Raza ASC.
-            [22] Salir
-        """
 
     while corriendo:
 
-        print(opciones)
+        opciones = fni.imprimir_opciones()
         
         seleccion = vl.validar_rango_menu(vl.validar_numero_menu(),1, 22)
 
