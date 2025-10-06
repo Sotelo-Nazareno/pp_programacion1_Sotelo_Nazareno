@@ -57,19 +57,18 @@ def validar_rango_menu(numero_str:str, numero_a:int, numero_b:int)->int:
     
     return numero_int
 
-def validar_raza(dato_ingresado:str)->str:
+def pertenece_raza(dato_ingresado:str)->bool:
     """
-    Valida si la raza ingresada pertence a la base de datos
+    Valida si el dato ingresado pertenece a las razas cargadas
 
     Args:
-        dato_ingresado (str): El dato ingresado a validar
+        dato_ingresado(str): El dato a validar del usuario
 
     Returns:
-        str: Devuevle el dato validado
+        bool: Devuelve el valor del dato ingresado
     """
-    dato_ingresado = dato_ingresado.title()
-    mensaje_error = f"La raza ingresada no esta cargada en nuesta bases de datos. Por favor intenetelo de nuevo"
-    if not(dato_ingresado == "Alpha" or
+
+    return(dato_ingresado == "Alpha" or
         dato_ingresado == "Android" or
         dato_ingresado == "Animal" or
         dato_ingresado == "Asgardian" or
@@ -84,12 +83,43 @@ def validar_raza(dato_ingresado:str)->str:
         dato_ingresado == "Mutant" or
         dato_ingresado == "New God" or
         dato_ingresado == "Saiyan" or
-        dato_ingresado == "Vampire"):
+        dato_ingresado == "Vampire")
+
+def validar_raza(dato_ingresado:str)->str:
+    """
+    Valida si la raza ingresada pertence a la base de datos
+
+    Args:
+        dato_ingresado (str): El dato ingresado a validar
+
+    Returns:
+        str: Devuevle el dato validado
+    """
+    dato_ingresado = dato_ingresado.title()
+    mensaje_error = f"La raza ingresada no esta cargada en nuesta bases de datos. Por favor intenetelo de nuevo"
+    if not(pertenece_raza(dato_ingresado)):
         print(mensaje_error)
         dato_ingresado = input("Ingrese la raza del personaje: ")
         return(validar_raza(dato_ingresado))
 
     return dato_ingresado
+
+def pertenece_genero(dato_ingresado:str)->bool:
+    """
+    Valida si el dato ingresado es valido
+
+    Args:
+        dato_ingresado (str): El dato ingresado por el usuario a validar
+
+    Returns:
+        bool: Devuelve si el dato es valido
+    """
+
+    return(dato_ingresado == "Masculino" or
+        dato_ingresado == "No-Binario" or
+        dato_ingresado == "Femenino")
+
+
 
 def validar_genero(dato_ingresado:str)->str:
     """
@@ -103,9 +133,7 @@ def validar_genero(dato_ingresado:str)->str:
     """
     dato_ingresado = dato_ingresado.title()
     mensaje_error = f"El genero ingresado no esta cargada en nuesta bases de datos. Por favor intenetelo de nuevo"
-    if not(dato_ingresado == "Masculino" or
-        dato_ingresado == "No-Binario" or
-        dato_ingresado == "Femenino"):
+    if not(pertenece_genero(dato_ingresado)):
         print(mensaje_error)
         dato_ingresado = input("Ingrese el genero del personaje: ")
         return(validar_genero(dato_ingresado))
