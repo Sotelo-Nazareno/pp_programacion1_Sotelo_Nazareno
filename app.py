@@ -34,7 +34,7 @@ def menu_opciones(lista_nombres:list, lista_alias:list, lista_razas:list, lista_
 
     while corriendo:
 
-        opciones = fni.imprimir_opciones()
+        fni.imprimir_opciones()
         
         seleccion = vl.validar_rango_menu(vl.validar_numero_menu(),1, 22)
 
